@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--default-padding);
+  > div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      margin: 0 var(--default-padding);
+      font-size: 1rem;
+    }
+  }
+  img {
+    width: 24px;
+    height: 24px;
+  }
+  p {
+    font-size: 0.75rem;
+  }
+}
+
+.footer-links-container{
+    max-width: 720px;
+    width: 100%;
+    a{
+        color: var(--default-text-color);
+        font-size: 0.75rem;
+        padding: 0 var(--default-padding);
+    }
+}
+
