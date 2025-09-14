@@ -1,13 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router";
 
 export const Header = ({ headerHeight }) => {
+  const { pathname } = useLocation();
   const calculateAlpha = () => {
     const m = -1 / 840;
     const c = 15 / 14;
     return m * headerHeight + c;
   };
   const getHeroImage = () => {
-    const { pathname } = window.location;
     if (pathname === "/menu") return "menu_hero.jpg";
     if (pathname === "/reservation") return "reservation_hero.jpg";
     return "home_hero.jpg";

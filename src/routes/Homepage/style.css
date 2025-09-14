@@ -2,6 +2,7 @@
   div {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: baseline;
   }
   h2 {
@@ -32,5 +33,11 @@
     font-size: 1rem;
     cursor: pointer;
     color: white;
+  }
+}
+
+.mobile{
+  @media (max-width: 768px) {
+    justify-content: center !important;
   }
 }

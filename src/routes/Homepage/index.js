@@ -26,7 +26,7 @@ export const HomePage = () => {
         <h2>Top picks for the day</h2>
         <NavLink to={"/menu"}>Explore More</NavLink>
       </div>
-      <div>
+      <div className="mobile">
         {topPicksData.length ? (
           topPicksData.map(({ imgUrl, badgeTitle }) => (
             <TopPicks imgUrl={imgUrl} badgeTitle={badgeTitle} key={imgUrl} />
