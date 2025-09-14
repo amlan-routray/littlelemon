@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router";
 
 export const Footer = () => {
   return (
-    <section className="footer">
+    <footer>
       <div>
         <img src="lemon.png" alt="footer" />
         <h2>Little Lemon</h2>
@@ -15,17 +16,17 @@ export const Footer = () => {
       </p>
       <div className="footer-links-container">
         <div>
-          <a href="/">Home</a>
-          <a href="/reservations">Reservations</a>
-          <a href="/menu">Menu</a>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/reservations">Reservations</NavLink>
+          <NavLink to="/menu">Menu</NavLink>
         </div>
         <p>Master Canteen, Bhubaneswar, India, +91 0000000000</p>
         <div>
-          <a href="/">Home</a>
-          <a href="/reservations">Reservations</a>
-          <a href="/menu">Menu</a>
+          <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer">Gmail</a>
+          <a href="https://fb.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://reddit.com" target="_blank" rel="noopener noreferrer">Reddit</a>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };

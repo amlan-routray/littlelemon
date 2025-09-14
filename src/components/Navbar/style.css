@@ -1,0 +1,10 @@
+nav{
+    position: fixed;
+    z-index: 101;
+    top: 16px;
+    right: 24px;
+    a{
+        color: white;
+        margin-left: 16px;
+    }
+}

@@ -1,0 +1,7 @@
+main {
+  width: 100%;
+  max-width: 1024px;
+  margin: 520px auto 100px auto;
+  max-height: 100%;
+  min-height: 70vh;
+}

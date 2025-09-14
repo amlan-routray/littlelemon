@@ -3,26 +3,30 @@ import { Header } from "./components/Header";
 import { Navbar } from "./components/Navbar";
 import { RootLayout } from "./components/RootLayout";
 import { Footer } from "./components/Footer";
-import { MenuCard } from "./common/MenuCard";
-import { TopPicks } from "./common/TopPicks";
+import React from "react";
+import { BrowserRouter } from "react-router";
 
-function App() {
+const App = () => {
+  const [headerHeight, setHeaderHeight] = React.useState(480);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const calculatedHeight =
+        window.scrollY <= 420 ? 480 - window.scrollY : 60;
+      setHeaderHeight(calculatedHeight);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      <Header />
+    <BrowserRouter>
+      <Header headerHeight={headerHeight} />
       <Navbar />
       <RootLayout />
       <Footer />
-      <MenuCard
-        imgUrl={"greeksalad.jpg"}
-        title={"Green Salad"}
-        description={
-          "Explore a whole range of cuisines and satisfy your cravings. Whether you want to dine in or enjoy a meal at home, we’ve got you covered."
-        }
-      />
-      <TopPicks imgUrl={"greeksalad.jpg"} badgeTitle={"Greek Salad"} />
-    </>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

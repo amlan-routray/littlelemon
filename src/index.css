@@ -28,3 +28,6 @@ code {
 @import './components/Header/style.css';
 @import './components/Navbar/style.css';
 @import './components/RootLayout/style.css';
+@import './routes/Homepage/style.css';
+@import './routes/Menu/style.css';
+@import './routes/Reservation/style.css';
