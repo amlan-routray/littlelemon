@@ -36,6 +36,9 @@ export const Header = ({ headerHeight }) => {
           lemon
         </h1>
       </div>
+      <h1 style={{ display: headerHeight > 320 ? "none" : "inline" }}>
+        little lemon
+      </h1>
     </header>
   );
 };

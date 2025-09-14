@@ -6,12 +6,12 @@ const mockedResponses = {
       imgUrl: "greeksalad.jpg",
     },
     {
-      badgeTitle: "Greek Salad",
-      imgUrl: "greeksalad.jpg",
+      badgeTitle: "Lemon Dessert",
+      imgUrl: "lemon_dessert.jpg",
     },
     {
-      badgeTitle: "Greek Salad",
-      imgUrl: "greeksalad.jpg",
+      badgeTitle: "Bruchetta",
+      imgUrl: "bruchetta.jpg",
     },
   ],
   forMenuItems: [
@@ -22,34 +22,22 @@ const mockedResponses = {
       imgUrl: "greeksalad.jpg",
     },
     {
-      title: "Greek Salad",
+      title: "Lemon Dessert",
       description:
         "Fresh and vibrant, made with crisp cucumbers, ripe tomatoes, olives, and tangy feta cheese. Perfectly drizzled with olive oil and herbs for a light, refreshing taste.",
-      imgUrl: "greeksalad.jpg",
+      imgUrl: "lemon_dessert.jpg",
     },
     {
-      title: "Greek Salad",
+      title: "Bruchetta",
       description:
         "Fresh and vibrant, made with crisp cucumbers, ripe tomatoes, olives, and tangy feta cheese. Perfectly drizzled with olive oil and herbs for a light, refreshing taste.",
-      imgUrl: "greeksalad.jpg",
+      imgUrl: "bruchetta.jpg",
     },
     {
-      title: "Greek Salad",
+      title: "Savory Eclairs",
       description:
         "Fresh and vibrant, made with crisp cucumbers, ripe tomatoes, olives, and tangy feta cheese. Perfectly drizzled with olive oil and herbs for a light, refreshing taste.",
-      imgUrl: "greeksalad.jpg",
-    },
-    {
-      title: "Greek Salad",
-      description:
-        "Fresh and vibrant, made with crisp cucumbers, ripe tomatoes, olives, and tangy feta cheese. Perfectly drizzled with olive oil and herbs for a light, refreshing taste.",
-      imgUrl: "greeksalad.jpg",
-    },
-    {
-      title: "Greek Salad",
-      description:
-        "Fresh and vibrant, made with crisp cucumbers, ripe tomatoes, olives, and tangy feta cheese. Perfectly drizzled with olive oil and herbs for a light, refreshing taste.",
-      imgUrl: "greeksalad.jpg",
+      imgUrl: "savory_eclairs.jpg",
     },
   ],
 };

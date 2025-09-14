@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router";
+
 import { TopPicks } from "../../common/TopPicks";
 import { fetchFakeApiData } from "../../utilities/fetchFakeApiData";
-import { NavLink, useNavigate } from "react-router";
+import { Skeleton } from "../../common/Skeleton";
 
 export const HomePage = () => {
   const [topPicksData, setTopPicksData] = useState([]);
@@ -15,7 +17,7 @@ export const HomePage = () => {
   }, []);
 
   const bookTableHandler = () => {
-    navigate('/reservation')
+    navigate("/reservation");
   };
 
   return (
@@ -25,9 +27,17 @@ export const HomePage = () => {
         <NavLink to={"/menu"}>Explore More</NavLink>
       </div>
       <div>
-        {topPicksData.map(({ imgUrl, badgeTitle }) => (
-          <TopPicks imgUrl={imgUrl} badgeTitle={badgeTitle} key={imgUrl}/>
-        ))}
+        {topPicksData.length ? (
+          topPicksData.map(({ imgUrl, badgeTitle }) => (
+            <TopPicks imgUrl={imgUrl} badgeTitle={badgeTitle} key={imgUrl} />
+          ))
+        ) : (
+          <>
+            <Skeleton style={{ width: "280px", height: "320px" }} />
+            <Skeleton style={{ width: "280px", height: "320px" }} />
+            <Skeleton style={{ width: "280px", height: "320px" }} />
+          </>
+        )}
       </div>
       <div className="homepage-book-table-section">
         <h2>Discover Flavors from Around the World</h2>
