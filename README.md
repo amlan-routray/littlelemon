@@ -19,11 +19,10 @@ Welcome to **Little Lemon**, a modern and responsive restaurant booking website 
 ## 🎨 Design Prototype
 
 Explore the design on Figma:  
-[View Interactive Prototype on Figma](https://www.figma.com/file/your-figma-file-id/Little-Lemon-Restaurant-Design)
+[View Interactive Prototype on Figma](https://www.figma.com/proto/3pLKwlW90mWWuR2uDpWK0p/lemon-tree?node-id=0-1&t=nVhzNbpg7guk76Zl-1)
 
-![Design Preview](./assets/figma-design.png)
-
----
+![Design Preview]
+[lemon tree.pdf](https://github.com/user-attachments/files/22336286/lemon.tree.pdf)
 
 ## 🚀 Live Demo
 
