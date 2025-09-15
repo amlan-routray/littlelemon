@@ -1,5 +1,6 @@
 import React from "react";
 import { Dialog } from "../../common/Dialog";
+import { submitAPI } from "../../utilities/fetchFakeApiData";
 
 // Private
 const getTodayDate = () => {
@@ -7,7 +8,7 @@ const getTodayDate = () => {
   return today.toISOString().split("T")[0]; // "YYYY-MM-DD"
 };
 
-export const Reservation = () => {
+export const Reservation = ({ dispatch, slots }) => {
   const [isTableConfirmed, setTableConfirmation] = React.useState(false);
   const [
     { guestName, guestNumber, reservationDate, reservationTime, occasion },
@@ -16,7 +17,7 @@ export const Reservation = () => {
     guestName: "",
     guestNumber: 1,
     reservationDate: getTodayDate(),
-    reservationTime: "17:00",
+    reservationTime: slots[0],
     occasion: "Birthday",
   });
 
@@ -32,12 +33,14 @@ export const Reservation = () => {
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "reservationDate")
+      dispatch({ type: "SET_SLOTS", payload: new Date(value) });
     setGuestInfo((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
-  const handleReservation = (e) => {
+  const handleReservation = async (e) => {
     e.preventDefault();
     console.log(e.target);
     const {
@@ -47,14 +50,17 @@ export const Reservation = () => {
       reservationTime,
       occasion,
     } = e.target;
-    setGuestInfo({
+    const finalGuestData = {
       guestName: guestName.value,
       guestNumber: guestNumber.value,
       reservationDate: reservationDate.value,
       reservationTime: reservationTime.value,
       occasion: occasion.value,
-    });
-    setTableConfirmation(true);
+    };
+    setGuestInfo(finalGuestData);
+    dispatch({type: 'ADD_BOOKING', payload: finalGuestData})
+    const isReservationSuccessful = await submitAPI(finalGuestData);
+    isReservationSuccessful && setTableConfirmation(true);
   };
   return (
     <>
@@ -103,12 +109,9 @@ export const Reservation = () => {
             name="reservationTime"
             onChange={handleChange}
           >
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-            <option>21:00</option>
-            <option>22:00</option>
+            {slots.map((slot) => (
+              <option>{slot}</option>
+            ))}
           </select>
           <label htmlFor="occasion">Occasion</label>
           <select id="occasion" name="occasion" onChange={handleChange}>
@@ -125,11 +128,6 @@ export const Reservation = () => {
         isOpen={isTableConfirmed}
         onClose={() => {
           setTableConfirmation(false);
-          setGuestInfo({
-            guestName: "",
-            guestNumber: 1,
-            reservationDate: getTodayDate(),
-          });
         }}
       >
         <h2 style={{ color: "green" }}>Table Reserved</h2>
