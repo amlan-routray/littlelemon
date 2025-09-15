@@ -9,12 +9,16 @@ const getTodayDate = () => {
 
 export const Reservation = () => {
   const [isTableConfirmed, setTableConfirmation] = React.useState(false);
-  const [{ guestName, guestNumber, reservationDate }, setGuestInfo] =
-    React.useState({
-      guestName: "",
-      guestNumber: 1,
-      reservationDate: getTodayDate(),
-    });
+  const [
+    { guestName, guestNumber, reservationDate, reservationTime, occasion },
+    setGuestInfo,
+  ] = React.useState({
+    guestName: "",
+    guestNumber: 1,
+    reservationDate: getTodayDate(),
+    reservationTime: "17:00",
+    occasion: "Birthday",
+  });
 
   const updateGuestNumber = (isDecrement = false) => {
     setGuestInfo((prev) => {
@@ -36,11 +40,19 @@ export const Reservation = () => {
   const handleReservation = (e) => {
     e.preventDefault();
     console.log(e.target);
-    const { guestName, guestNumber, reservationDate } = e.target;
+    const {
+      guestName,
+      guestNumber,
+      reservationDate,
+      reservationTime,
+      occasion,
+    } = e.target;
     setGuestInfo({
       guestName: guestName.value,
       guestNumber: guestNumber.value,
       reservationDate: reservationDate.value,
+      reservationTime: reservationTime.value,
+      occasion: occasion.value,
     });
     setTableConfirmation(true);
   };
@@ -85,6 +97,27 @@ export const Reservation = () => {
             value={reservationDate}
             onChange={handleChange}
           />
+          <label htmlFor="reservationTime">Reservation Time</label>
+          <select
+            id="reservationTime"
+            name="reservationTime"
+            onChange={handleChange}
+          >
+            <option>17:00</option>
+            <option>18:00</option>
+            <option>19:00</option>
+            <option>20:00</option>
+            <option>21:00</option>
+            <option>22:00</option>
+          </select>
+          <label htmlFor="occasion">Occasion</label>
+          <select id="occasion" name="occasion" onChange={handleChange}>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+            <option>Get Together</option>
+            <option>Date</option>
+            <option>Other</option>
+          </select>
           <input type="submit" value="Book a table" />
         </form>
       </section>
@@ -102,7 +135,8 @@ export const Reservation = () => {
         <h2 style={{ color: "green" }}>Table Reserved</h2>
         <p>
           Dear {guestName}, your table for {guestNumber} guest/s has been
-          reserved on {reservationDate}
+          reserved on {reservationDate} at {reservationTime} for your occasion
+          of {occasion}
         </p>
       </Dialog>
     </>
