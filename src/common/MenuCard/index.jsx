@@ -12,7 +12,7 @@ export const MenuCard = ({ imgUrl, title, description }) => {
     <section className="menucard" aria-label={`Menu item: ${title}`}>
       <img
         src={imgUrl}
-        alt={`Image of ${title}`}
+        alt={`${title}`}
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = "placeholder.png";

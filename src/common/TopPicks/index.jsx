@@ -23,7 +23,7 @@ export const TopPicks = ({ imgUrl, badgeTitle }) => {
     >
       <img
         src={imgUrl}
-        alt={`Image of ${badgeTitle}`}
+        alt={`${badgeTitle}`}
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = "placeholder.png";

@@ -1,7 +1,15 @@
 import { fetchAPI } from "./fetchFakeApiData";
 
+export const initializeTimes = () => {
+  return fetchAPI(new Date());
+};
+
+export const updateTimes = (date) => {
+  return fetchAPI(date);
+};
+
 export const initialState = {
-  availableSlots: fetchAPI(new Date()),
+  availableSlots: initializeTimes(),
   bookingList: [],
 };
 
@@ -9,15 +17,14 @@ export const initialState = {
 export const bookingReducer = (state, action) => {
   switch (action.type) {
     case "SET_SLOTS":
-      const generatedAvailableSlots = fetchAPI(action.payload);
       return {
         ...state,
-        availableSlots: generatedAvailableSlots,
+        availableSlots: updateTimes(action.payload),
       };
 
     case "ADD_BOOKING":
       return {
-        bookingList: [...state.bookingList, action.payload], 
+        bookingList: [...state.bookingList, action.payload],
         availableSlots: fetchAPI(new Date()),
       };
 
@@ -25,4 +32,3 @@ export const bookingReducer = (state, action) => {
       return state;
   }
 };
-
